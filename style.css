@@ -171,7 +171,7 @@ h3 {
 }
 
 /* responsive adjustments */
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
     .container {
         grid-template-areas:
             'board'
@@ -206,4 +206,4 @@ h3 {
         height: 50px;
         font-size: 24px;
     }
-}
+} */
