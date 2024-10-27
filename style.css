@@ -1,0 +1,209 @@
+:root {
+    --primary-color: royalblue;
+    --highlight-color: orangered;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+    user-select: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+hr {
+    width: 700px;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* help button */
+h3 {
+    width: 28px;
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 25px;
+    text-align: center;
+    color: var(--primary-color);
+    margin: 2px 0 2px 90px;
+    cursor: pointer;
+}
+
+/* container layout */
+.container {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-areas: 
+        'numpad sgrid'
+        'button button';
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 50px;
+    margin: auto;
+}
+
+/* sudoku grid */
+#grid {
+    grid-area: sgrid;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+.cell {
+    width: calc(100% / 9); /* dynamically calculated */
+    height: calc(100% / 9);
+    border: 1px dotted gray;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-selected {
+    background-color: lightgrey;
+}
+
+.horizontal-border {
+    border-bottom: 1px solid black;
+}
+
+.vertical-border {
+    border-right: 1px solid black;
+}
+
+/* numpad, delete button */
+#numpad {
+    grid-area: numpad;
+    width: 210px;
+    height: 280px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.num, .delete {
+    width: 56px;
+    height: 56px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 40px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num:hover, .delete:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.delete {
+    width: 120px;
+    font-size: 35px;
+}
+
+/* button pad layout */
+#buttonpad {
+    grid-area: button;
+    width: 710px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*clear, solve button */
+.clear, .solve {
+    width: 190px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clear {
+    margin-right: 20px;
+}
+
+.clear:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.solve {
+    width: 230px;
+    border-color: var(--highlight-color);
+    color: var(--highlight-color);
+}
+
+.solve:hover {
+    background-color: var(--highlight-color);
+    color: white;
+    cursor: pointer;
+}
+
+/* description display */
+#descr {
+    display: none;
+    align-items: center;
+}
+
+/* responsive adjustments */
+@media (max-width: 800px) {
+    .container {
+        grid-template-areas:
+            'board'
+            'numpad'
+            'button';
+        row-gap: 15px;
+    }
+
+    #grid {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    #numpad, .num, .delete {
+        width: 150px;
+        height: auto;
+        font-size: 30px;
+    }
+
+    #buttonpad {
+        width: 100%;
+    }
+
+    .clear, .solve {
+        width: 150px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
